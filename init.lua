@@ -675,7 +675,10 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
       -- Julia LSP: mason-lspconfig v2 is broken for julials, so configure manually
+      -- To geht get julia lsp running, you need to set up an enviroment with:
+      -- julia -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
       if vim.fn.executable 'julia' == 1 then
         if vim.fn.has 'nvim-0.11' == 1 then
           vim.lsp.config('julials', {
